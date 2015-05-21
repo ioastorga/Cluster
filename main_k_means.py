@@ -22,9 +22,14 @@ if __name__ == "__main__":
     centers.append(data[0])
     centers.append(data[1])
 
-    
+    #print "data 0= " , data[0]
+    #print "data 1 = ", data[1]
+    #print "len(centers)", len(centers)
     results = kmeans(data, centers) 
-
+    
+    #print "Centers = ", results
+    #print "ground", type(groundtruth)
+    #print "results", type(results)
     res_Purity = purity(groundtruth, results) 
     res_NMI = NMI(groundtruth, results) 
     
