@@ -47,7 +47,10 @@ def NMI(groundtruthAssignment, algorithmAssignment):
     pt_j = [0]*gID
     pc_i = [0]*cID
     pij = [[0]*cID for i in range(gID)]
-
+    #print "gID", gID
+    #print "cID", cID
+    print "pij", pij
+    #print "pijL", len(pij[0])
     algorithmAssignment = np.asarray(algorithmAssignment)
     groundtruthAssignment = np.asarray(groundtruthAssignment)
 
@@ -82,17 +85,19 @@ def NMI(groundtruthAssignment, algorithmAssignment):
 
     for l in range(cID):
         idK = np.where(algorithmAssignment == l)[0]
+        pci =pc_i[l]
         for ll in range(gID):
+            ptj = pt_j[ll]
             ngrand = np.where(groundtruthAssignment == ll)[0]
             inter = set(idK) & set(ngrand)
      #       print " ngrand", ngrand
     #        print "idK", idK
             kT = 1.0*len(inter)/nData
       #      print "kT ", kT
-            if (pc[l]*pt[ll]) != 0 and  kT !=0:
-                pij[l][ll] = kT*log(kT/(pc_i[l]*pt_j[ll]))
+            if (pci*ptj) != 0 and  kT !=0:
+                pij[ll][l] = kT*log(kT/(pci*ptj))
             else:
-                pij[l][ll]= 0
+                pij[ll][l]= 0
     Ict = np.sum(pij)
    # print "ICT",Ict
     

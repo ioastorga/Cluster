@@ -16,12 +16,14 @@ if __name__ == "__main__":
     
     nDim = len(data[0]) 
    
-    K = 2  # Suppose there are 2 clusters 
+    #K = 5  # Suppose there are 2 clusters 
     
     centers = [] 
     centers.append(data[0])
     centers.append(data[1])
-
+    #centers.append(data[2])
+    #centers.append(data[3])
+    #centers.append(data[4])
     #print "data 0= " , data[0]
     #print "data 1 = ", data[1]
     #print "len(centers)", len(centers)

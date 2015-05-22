@@ -21,12 +21,13 @@ if __name__ == "__main__":
 
     nDim = len(data[0]) 
    
-    K = 2  # Suppose there are 2 clusters 
+    #K = 2  # Suppose there are 2 clusters 
     
     centers = []
     centers.append(data[0])
     centers.append(data[1]) 
-    
+    #centers.append(data[2])
+    #centers.append(data[3])
     results = kmeans(data, centers) 
 
     res_Purity = purity(results, groundtruth) 
